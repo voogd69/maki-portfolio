@@ -1,7 +1,7 @@
  :root{
   --bg:#e8e2e1;
   --ink:#403a39;
-  --muted:#786f6c;
+  --muted:#655d5b;
   --pink:#dbaeb5;
   --pink2:#c9959e;
   --serif:"Cormorant Garamond",Georgia,serif;
@@ -153,8 +153,8 @@ h1{
   font-weight:400;
 }
 .about p{
-  font-size:10px;
-  line-height:1.9;
+  font-size:12px;
+  line-height:1.85;
 }
 .facts{
   margin-top:18px;
@@ -163,8 +163,8 @@ h1{
   gap:12px;
 }
 .facts small,.facts strong{display:block}
-.facts small{font-size:8px;color:var(--muted)}
-.facts strong{font-size:9px;font-weight:400;margin-top:3px}
+.facts small{font-size:9px;color:var(--muted)}
+.facts strong{font-size:10px;font-weight:500;margin-top:4px}
 
 .services{padding:42px 0}
 .services-grid{
@@ -182,8 +182,8 @@ h1{
 }
 .service-card:hover{transform:translateY(-9px);border-color:rgba(255,255,255,.95);box-shadow:0 24px 54px rgba(110,78,77,.12),inset 0 1px 0 #fff}
 .service-icon{font-size:28px}
-.service-card h3{font-size:12px;font-weight:400;margin:20px 0 10px}
-.service-card p{font-size:9px;line-height:1.8}
+.service-card h3{font-size:14px;font-weight:500;margin:20px 0 10px}
+.service-card p{font-size:11px;line-height:1.8;color:#5f5755}
 
 .works{
   padding:28px;
@@ -195,7 +195,7 @@ h1{
   align-items:end;
   gap:18px;
 }
-.works-head p{font-size:9px;color:var(--muted)}
+.works-head p{font-size:11px;color:var(--muted)}
 .filters{display:flex;gap:8px;flex-wrap:wrap}
 .filter{
   min-width:60px;
@@ -204,7 +204,7 @@ h1{
   border:1px solid rgba(255,255,255,.60);
   border-radius:999px;
   background:rgba(255,255,255,.16);
-  font-size:8px;
+  font-size:10px;
   color:var(--muted);
   cursor:pointer;
 }
@@ -232,15 +232,16 @@ h1{
 .work-card:hover{transform:translateY(-7px) scale(1.01);box-shadow:0 22px 42px rgba(88,61,62,.13);border-color:rgba(255,255,255,.95)}
 .work-card img{
   aspect-ratio:1.45;
-  object-fit:cover;
+  object-fit:contain;
+  background:rgba(255,255,255,.46);
   border-radius:9px;
   transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .5s ease;
 }
 .work-card:hover img{transform:scale(1.045);filter:saturate(1.04)}
 @keyframes cardIn{to{opacity:1;transform:none}}
 .work-info{padding:9px 5px 3px}
-.work-info small{font-size:7px;color:var(--muted)}
-.work-info p{margin:3px 0 0;font-size:9px}
+.work-info small{font-size:9px;color:var(--muted)}
+.work-info p{margin:4px 0 0;font-size:11px;font-weight:500}
 
 .contact{
   margin-top:42px;
@@ -251,14 +252,26 @@ h1{
   grid-template-columns:1fr 1fr;
   gap:20px;
 }
-.contact p{font-size:10px;line-height:1.8}
+.contact p{font-size:12px;line-height:1.8}
 .contact-info{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:12px;
-  font-size:10px;
+  align-items:flex-start;
+  gap:10px;
+  font-size:11px;
 }
+.contact-info a{
+  min-width:210px;
+  padding:11px 16px;
+  border:1px solid rgba(255,255,255,.78);
+  border-radius:999px;
+  background:rgba(255,255,255,.28);
+  transition:transform .3s ease,background .3s ease,box-shadow .3s ease;
+}
+.contact-info a::after{content:" ↗";float:right;color:var(--pink2)}
+.contact-info #mail-link::after{content:" →"}
+.contact-info a:hover{transform:translateX(4px);background:rgba(255,255,255,.52);box-shadow:0 10px 24px rgba(90,66,65,.08)}
 .footer{
   min-height:70px;
   display:flex;
@@ -290,6 +303,7 @@ h1{
   .services-grid,
   .works-grid{grid-template-columns:1fr}
   .contact{grid-template-columns:1fr}
+  .contact-info a{width:100%;min-width:0}
 }
 
 @media(prefers-reduced-motion:reduce){

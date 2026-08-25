@@ -19,7 +19,7 @@ const SITE_DATA = {
     facts: [
       { label: "Name", value: "maki." },
       { label: "From", value: "Nagano, Japan" },
-      { label: "Birthday", value: "1998.05.24" },
+      { label: "Available", value: "平日8h / 土日祝対応可" },
       { label: "Skill", value: "Design / Coding" },
       { label: "Tool", value: "Figma / Canva / VSCode" }
     ]
