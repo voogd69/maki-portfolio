@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Works | maki.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="work.css">
+</head>
+<body>
+<header class="shell">
+  <a class="logo" href="../index.html">maki.</a>
+  <a class="back" href="../index.html#works">← Back to Works</a>
+</header>
+
+<main class="shell">
+  <section class="work-hero">
+    <p class="eyebrow">SELECTED WORK</p>
+    <h1 id="work-title"></h1>
+    <p class="type" id="work-type"></p>
+    <div class="preview panel"><img id="work-image" alt=""></div>
+  </section>
+
+  <section class="detail-grid">
+    <article class="card panel">
+      <h2>Overview</h2>
+      <p id="work-overview"></p>
+      <h2 style="margin-top:28px">Design Point</h2>
+      <ul id="work-points" class="points"></ul>
+    </article>
+
+    <aside class="card panel">
+      <h2>Project Info</h2>
+      <div class="meta-row"><span>Target</span><b id="work-target"></b></div>
+      <div class="meta-row"><span>Purpose</span><b id="work-purpose"></b></div>
+      <div class="meta-row"><span>Tools</span><b id="work-tools"></b></div>
+      <div class="meta-row"><span>Period</span><b id="work-period"></b></div>
+    </aside>
+  </section>
+</main>
+
+<footer class="shell">© maki. All Rights Reserved.</footer>
+
+<script src="../work-data.js"></script>
+<script>
+  const id = Number(new URLSearchParams(location.search).get("id")) || 1;
+  const w = WORK_DETAILS[id];
+
+  if (!w) {
+    document.body.innerHTML = '<main class="shell"><h1>Work not found.</h1><a href="../index.html#works">← Back</a></main>';
+  } else {
+    document.title = `${w.title} | maki.`;
+    document.querySelector("#work-title").textContent = w.title;
+    document.querySelector("#work-type").textContent = w.type;
+    const img = document.querySelector("#work-image");
+    img.src = w.image; img.alt = w.title;
+    document.querySelector("#work-overview").textContent = w.overview;
+    document.querySelector("#work-target").textContent = w.target;
+    document.querySelector("#work-purpose").textContent = w.purpose;
+    document.querySelector("#work-tools").textContent = w.tools;
+    document.querySelector("#work-period").textContent = w.period;
+    const ul = document.querySelector("#work-points");
+    w.points.forEach(p => {
+      const li = document.createElement("li");
+      li.textContent = p;
+      ul.appendChild(li);
+    });
+  }
+</script>
+</body>
+</html>
